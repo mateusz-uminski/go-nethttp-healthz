@@ -2,7 +2,7 @@
 
 [![verify](https://github.com/mateusz-uminski/go-nethttp-healthz/actions/workflows/verify.yml/badge.svg)](https://github.com/mateusz-uminski/go-nethttp-healthz/actions/workflows/verify.yml)
 
-This is a lightweight Go web application built using the standard `net/http` that provides a simple health check API endpoint. The application exposes a `/api/v1/healthz` endpoint that returns the service's health status. The endpoint can be used to verify if the application is running and operational.
+This is a lightweight Go web application built using the standard `net/http` that provides a simple health check API endpoint. The application exposes `/api/v1/healthz` endpoint that returns the service's health status. The endpoint can be used to verify if the application is running and operational.
 
 Besides the README.md further documentation can be found in commits, code comments and nested README files.
 
