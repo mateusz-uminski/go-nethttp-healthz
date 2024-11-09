@@ -1,0 +1,35 @@
+run:
+  timeout: 5m
+
+linters-setting:
+  lll:
+    line-length: 100
+
+issues:
+  max-issue-per-linter: 0
+  max-same-issues: 0
+
+linters:
+  enable:
+    - deadcode      # default - finds unused code
+    - errcheck      # default - finds unchecked errors
+    - godot         # check if comments end in a period
+    - gofmt         # checks whether code was gofmt-ed
+    - gocritic      # provides checks currently missing from other linters
+    - goerr113      # check errors handling expressions
+    - gosimple      # default - specializes in simplifying a code
+    - govet         # default - reports suspicious constructs
+    - ineffassign   # default - detects unused assignments to vars
+    - lll           # reports long lines
+    - nakedret      # find naked returns in functions greater than func lenght
+    - staticcheck   # default - go vet on steroids
+    - structcheck   # default - finds unused struct fields
+    - unconvert     # detects unnecessary type conversions
+    - unused        # default - find unused vars, functions, consts and types
+    - varcheck      # default - finds unused global vars and consts
+    - bodyclose     # checks whether HTTP response body is closed successfully
+    - noctx         # finds sending http request without context.Context
+    - gosec         # inspect source code for security problems
+    - gocyclo       # computes and check the cyclomatic complexity of functions
+    - gocognit      # computes and checks cognitive complexity of functions
+    - goimports     # checks whether imports are unused
