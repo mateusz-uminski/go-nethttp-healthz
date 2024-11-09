@@ -1,0 +1,41 @@
+---
+name: verify
+
+on:
+  push:
+    branches:
+      - master
+      - development
+  pull_request:
+
+env:
+  GO_VERSION: "1.20"
+
+jobs:
+  envs:
+    runs-on: ubuntu-22.04
+    steps:
+      - run: exit 0
+    outputs:
+      GO_VERSION: ${{ env.GO_VERSION }}
+
+  lint:
+    needs: envs
+    uses: mateusz-uminski/github-actions/.github/workflows/go-lint.yaml@main
+    with:
+      go_version: "v${{ needs.envs.outputs.GO_VERSION }}"
+      golangci_version: v1.61
+
+  tests:
+    needs: envs
+    uses: mateusz-uminski/github-actions/.github/workflows/go-tests.yaml@main
+    with:
+      go_version: ${{ needs.envs.outputs.GO_VERSION }}
+
+  docker-build:
+    needs: tests
+    uses: mateusz-uminski/github-actions/.github/workflows/build-docker-image.yaml@main
+    with:
+      runner: ubuntu-22.04
+      path: "."
+      tag: latest
